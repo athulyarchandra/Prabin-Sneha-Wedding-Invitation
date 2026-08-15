@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --plum: #936492;
+    --plum-dark: #4a2149;
+    --plum-deep: #2a1029;
+    --plum-light: #c299c1;
+    --plum-soft: #f7eff6;
+    --gold: #c59b27;
+    --gold-light: #f7e9b7;
+    --gold-gradient: linear-gradient(135deg, #dfba4e 0%, #fcecb0 50%, #b88a1b 100%);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .font-signature {
+    font-family: 'Alex Brush', cursive;
+  }
+}
+
+/* Modern Gradient Cards & Backgrounds */
+.bg-modern-gradient {
+  background: radial-gradient(circle at 15% 15%, rgba(147, 100, 146, 0.18) 0%, transparent 45%),
+              radial-gradient(circle at 85% 30%, rgba(212, 175, 55, 0.14) 0%, transparent 50%),
+              radial-gradient(circle at 50% 70%, rgba(183, 139, 182, 0.15) 0%, transparent 55%),
+              radial-gradient(circle at 20% 90%, rgba(92, 53, 91, 0.1) 0%, transparent 40%),
+              linear-gradient(180deg, #faf6f9 0%, #f4ebf3 50%, #ede0ec 100%);
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f7e7a9 50%, #b38719 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #966f19 0%, #d4af37 40%, #f5e4a8 70%, #966f19 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-plum-gradient {
+  background: linear-gradient(135deg, #4d244b 0%, #936492 50%, #754474 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Modern Gradient Cards */
+.card-gradient-luxury {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 243, 249, 0.9) 50%, rgba(244, 233, 243, 0.92) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  box-shadow: 0 15px 35px -10px rgba(147, 100, 146, 0.16), 0 0 0 1px rgba(255, 255, 255, 0.8) inset;
+}
+
+.card-gradient-plum {
+  background: linear-gradient(145deg, #4d234c 0%, #381537 50%, #250924 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(241, 223, 157, 0.35);
+  box-shadow: 0 20px 40px -10px rgba(35, 11, 34, 0.5);
+}
+
+.card-gradient-gold {
+  background: linear-gradient(145deg, rgba(253, 249, 239, 0.95) 0%, rgba(247, 238, 218, 0.9) 100%);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(212, 175, 55, 0.4);
+  box-shadow: 0 15px 30px -10px rgba(212, 175, 55, 0.2);
+}
+
+/* Animations */
+@keyframes petalDrift {
+  0% { transform: translateY(-10%) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.8; }
+  80% { opacity: 0.8; }
+  100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+.petal {
+  position: fixed;
+  top: -20px;
+  user-select: none;
+  pointer-events: none;
+  z-index: 40;
+  animation: petalDrift linear infinite;
+}
+
+/* Custom gold-mauve scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #faf6f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #b78bb6;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #936492;
+}
