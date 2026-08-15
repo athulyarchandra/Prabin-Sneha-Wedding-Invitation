@@ -21,6 +21,21 @@ export const SmartImage: React.FC<SmartImageProps> = ({
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
+  const getResolvedSrc = (url: string) => {
+    if (!url || url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:') || url.startsWith('blob:')) {
+      return url;
+    }
+    const base = import.meta.env.BASE_URL.endsWith('/')
+      ? import.meta.env.BASE_URL
+      : `${import.meta.env.BASE_URL}/`;
+    if (url.startsWith(base)) {
+      return url;
+    }
+    const cleanPath = url.startsWith('/') ? url.slice(1) : url;
+    return `${base}${cleanPath}`;
+  };
+
+  const resolvedSrc = getResolvedSrc(src);
   const filename = src.split('/').pop() || 'photo.jpg';
   const label = placeholderLabel || filename;
 
@@ -57,7 +72,7 @@ export const SmartImage: React.FC<SmartImageProps> = ({
         </div>
       )}
       <img
-        src={src}
+        src={resolvedSrc}
         alt={alt}
         onLoad={() => setIsLoading(false)}
         onError={() => setHasError(true)}

@@ -27,6 +27,14 @@ export interface GalleryPhoto {
   aspect?: string;
 }
 
+const getAssetUrl = (path: string): string => {
+  const base = import.meta.env.BASE_URL.endsWith('/')
+    ? import.meta.env.BASE_URL
+    : `${import.meta.env.BASE_URL}/`;
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${base}${cleanPath}`;
+};
+
 export const weddingData = {
   couple: {
     groom: {
@@ -89,17 +97,17 @@ export const weddingData = {
     address: "Kumbidi - Thrissur / Palakkad Road, Kumbidi, Kerala 679533",
     googleMapsEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15674.321683492817!2d75.9818816!3d10.8434863!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7b931e9c2b4c1%3A0x6b801a6136d071a5!2sKumbidi%2C%20Kerala!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin",
     directionsUrl: "https://www.google.com/maps/search/?api=1&query=NAS+Auditorium+Kumbidi+Kerala",
-    image: "/images/auditorium.png",
+    image: getAssetUrl("images/auditorium.png"),
   },
   photos: {
-    hero: "/images/couple-hero.png",
+    hero: getAssetUrl("images/couple-hero.png"),
     gallery: [
-      { id: "1", url: "/images/couple-hero.png", caption: "The beginning of our journey", aspect: "aspect-[4/5]" },
-      { id: "2", url: "/images/gallery-2.png", caption: "Laughter in every heartbeat", aspect: "aspect-[4/3]" },
-      { id: "3", url: "/images/gallery-3.png", caption: "A walk towards forever", aspect: "aspect-[4/5]" },
-      { id: "4", url: "/images/gallery-4.png", caption: "Golden sunset memories", aspect: "aspect-[4/3]" },
-      { id: "5", url: "/images/gallery-5.png", caption: "Cherished celebrations", aspect: "aspect-[4/5]" },
-      { id: "6", url: "/images/gallery-6.png", caption: "Ready for our big day", aspect: "aspect-[4/4]" },
+      { id: "1", url: getAssetUrl("images/couple-hero.png"), caption: "The beginning of our journey", aspect: "aspect-[4/5]" },
+      { id: "2", url: getAssetUrl("images/gallery-2.png"), caption: "Laughter in every heartbeat", aspect: "aspect-[4/3]" },
+      { id: "3", url: getAssetUrl("images/gallery-3.png"), caption: "A walk towards forever", aspect: "aspect-[4/5]" },
+      { id: "4", url: getAssetUrl("images/gallery-4.png"), caption: "Golden sunset memories", aspect: "aspect-[4/3]" },
+      { id: "5", url: getAssetUrl("images/gallery-5.png"), caption: "Cherished celebrations", aspect: "aspect-[4/5]" },
+      { id: "6", url: getAssetUrl("images/gallery-6.png"), caption: "Ready for our big day", aspect: "aspect-[4/4]" },
     ] as GalleryPhoto[],
   },
   rsvp: {

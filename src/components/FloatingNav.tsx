@@ -1,23 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Sparkles, Calendar, MapPin, Image, HeartHandshake, MessageSquare } from 'lucide-react';
 
+const NAV_ITEMS = [
+  { id: 'hero', label: 'Cover', icon: Sparkles },
+  { id: 'scratch-card-section', label: 'Date Reveal', icon: Calendar },
+  { id: 'invitation-details', label: 'Invitation', icon: HeartHandshake },
+  { id: 'venue-section', label: 'Venue & Map', icon: MapPin },
+  { id: 'gallery-section', label: 'Moments', icon: Image },
+  { id: 'rsvp-section', label: 'RSVP', icon: Sparkles },
+  { id: 'guestbook-section', label: 'Blessings', icon: MessageSquare },
+];
+
 export const FloatingNav: React.FC = () => {
   const [activeSection, setActiveSection] = useState('hero');
-
-  const navItems = [
-    { id: 'hero', label: 'Cover', icon: Sparkles },
-    { id: 'scratch-card-section', label: 'Date Reveal', icon: Calendar },
-    { id: 'invitation-details', label: 'Invitation', icon: HeartHandshake },
-    { id: 'venue-section', label: 'Venue & Map', icon: MapPin },
-    { id: 'gallery-section', label: 'Moments', icon: Image },
-    { id: 'rsvp-section', label: 'RSVP', icon: Sparkles },
-    { id: 'guestbook-section', label: 'Blessings', icon: MessageSquare },
-  ];
 
   useEffect(() => {
     const handleScroll = () => {
       const scrollPos = window.scrollY + 200;
-      for (const item of navItems) {
+      for (const item of NAV_ITEMS) {
         if (item.id === 'hero' && window.scrollY < 300) {
           setActiveSection('hero');
           break;
@@ -54,7 +54,7 @@ export const FloatingNav: React.FC = () => {
       className="fixed bottom-5 left-1/2 -translate-x-1/2 z-40 bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-full shadow-[0_10px_25px_rgba(147,100,146,0.25)] border border-[#d4af37]/40 flex items-center gap-1 sm:gap-2 max-w-[90vw] overflow-x-auto"
       aria-label="Invitation story navigation"
     >
-      {navItems.map((item) => {
+      {NAV_ITEMS.map((item) => {
         const Icon = item.icon;
         const isActive = activeSection === item.id;
         return (
