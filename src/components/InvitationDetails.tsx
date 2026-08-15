@@ -32,7 +32,7 @@ export const InvitationDetails: React.FC = () => {
         {/* Blessing Verse */}
         <div className="max-w-2xl mx-auto mb-6">
           <p className="font-display italic text-base sm:text-lg text-[#523d51] leading-relaxed">
-            "{weddingData.couple.subtagline}"
+            "{weddingData.couple.subtaglineTwo}"
           </p>
         </div>
 

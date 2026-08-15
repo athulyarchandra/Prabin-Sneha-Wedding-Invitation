@@ -56,14 +56,15 @@ export const weddingData = {
     initials: "P & S",
     tagline: "Together with our families",
     subtagline: "With the blessings of the Almighty and our beloved parents, we invite you to share in the joy of our union as we exchange vows and begin a new chapter of love, laughter, and forever.",
+    subtaglineTwo:"With immense joy, we invite you to join us in celebrating this beautiful occasion and to bless the couple as they begin their journey together.",
     hashtag: "#PrabinWedsSneha",
   },
   date: {
     day: "07",
     month: "September",
     year: "2026",
-    dayOfWeek: "Sunday",
-    formattedFull: "Sunday, 7 September 2026",
+    dayOfWeek: "Monday",
+    formattedFull: "Monday, 7 September 2026",
     targetIsoDate: "2026-09-07T10:00:00+05:30",
   },
   events: [
@@ -80,7 +81,7 @@ export const weddingData = {
     },
     {
       id: "reception",
-      title: "Wedding Function & Grand Feast",
+      title: "Wedding Function",
       subTitle: "Celebration with Family & Friends",
       time: "12:00 PM – 3:00 PM",
       venue: "NAS Auditorium, Kumbidi",
@@ -120,7 +121,7 @@ export const weddingData = {
   ] as Blessing[],
   footer: {
     coupleNames: "Prabin & Sneha",
-    dateVenue: "Sunday, 7 September · Kerala, India",
+    dateVenue: "Monday, 7 September · Kerala, India",
     loveNote: "Made with love ❤︎",
   }
 };

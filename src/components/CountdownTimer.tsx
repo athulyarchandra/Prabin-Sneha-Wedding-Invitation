@@ -111,7 +111,7 @@ export const CountdownTimer: React.FC = () => {
           
           <span className="text-xs text-white/70 flex items-center gap-1 font-light">
             <Clock className="w-3 h-3 text-[#f1df9d]" />
-            {weddingData.date.formattedFull} · 10:00 AM IST
+            {weddingData.date.formattedFull} · 10:00 AM
           </span>
         </div>
 
