@@ -96,7 +96,7 @@ export const AudioPlayer: React.FC = () => {
           </div>
 
           <span className="text-[11px] font-semibold tracking-wider text-[#fbf6e2] hidden sm:inline">
-            {isPlaying ? 'Wedding Melody' : 'Play Music'}
+            {isPlaying ? 'PS' : 'Play PS'}
           </span>
         </div>
 
