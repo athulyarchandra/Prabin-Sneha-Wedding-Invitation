@@ -106,9 +106,9 @@ export const weddingData = {
       { id: "1", url: getAssetUrl("images/couple-hero.png"), caption: "The beginning of forever", aspect: "aspect-[4/5]" },
       { id: "3", url: getAssetUrl("images/gallery-10.png"), caption: "Celebrating love, together", aspect: "aspect-[4/3]" },
       { id: "2", url: getAssetUrl("images/gallery-2.png"), caption: "രണ്ട് ഹൃദയങ്ങൾ, ഒരേ സ്വപ്നത്തിലേക്ക്…", aspect: "aspect-[4/4]" },
-      { id: "5", url: getAssetUrl("images/gallery-7.png"), caption: "Surrounded by love and blessings", aspect: "aspect-[4/3]" },
-      { id: "6", url: getAssetUrl("images/gallery-8.png"), caption: "Love found its place, and hearts found their home.", aspect: "aspect-[4/4]" },
       { id: "4", url: getAssetUrl("images/gallery-9.png"), caption: "Ready for our big day", aspect: "aspect-[4/5]" },
+      { id: "6", url: getAssetUrl("images/gallery-8.png"), caption: "Love found its place, and hearts found their home.", aspect: "aspect-[4/4]" },
+      { id: "5", url: getAssetUrl("images/gallery-7.png"), caption: "Surrounded by love and blessings", aspect: "aspect-[4/3]" },
 
     ] as GalleryPhoto[],
   },
