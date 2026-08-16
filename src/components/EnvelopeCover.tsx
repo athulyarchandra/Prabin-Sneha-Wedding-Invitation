@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Sparkles, Music, Volume2, Heart } from 'lucide-react';
+import { Sparkles, Heart } from 'lucide-react';
 import { romanticAudio } from '../utils/audioSynth';
 import { weddingData } from '../data/weddingData';
 import { ModernLogo } from './ModernLogo';
