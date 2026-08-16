@@ -271,7 +271,7 @@ export const ScratchCardReveal: React.FC = () => {
       <div className="flex items-center justify-center gap-2 mb-1.5">
         <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
         <span className="text-[11px] font-bold uppercase tracking-[0.25em] text-[#936492]">
-          Interactive Reveal
+          Reveal
         </span>
         <Sparkles className="w-3.5 h-3.5 text-[#d4af37]" />
       </div>

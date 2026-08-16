@@ -41,7 +41,7 @@ export const weddingData = {
       name: "Prabin",
       fullName: "Prabin Sharma",
       title: "The Groom",
-      parents: "Mr.Prasanth kumar SK & Mrs. Biaetreese R",
+      parents: "Mr.Prasanth Kumar SK & Mrs. Biaetreese R",
       parentsSubtitle: "Parents of Prabin",
       quote: "Together with our families, we invite you to share in the joy of our union."
     },
@@ -56,7 +56,7 @@ export const weddingData = {
     initials: "P & S",
     tagline: "Together with our families",
     subtagline: "With the blessings of the Almighty and our beloved parents, we invite you to share in the joy of our union as we exchange vows and begin a new chapter of love, laughter, and forever.",
-    subtaglineTwo:"With immense joy, we invite you to join us in celebrating this beautiful occasion and to bless the couple as they begin their journey together.",
+    subtaglineTwo: "With immense joy, we invite you to join us in celebrating this beautiful occasion and to bless the couple as they begin their journey together.",
     hashtag: "#PrabinWedsSneha",
   },
   date: {
@@ -103,12 +103,13 @@ export const weddingData = {
   photos: {
     hero: getAssetUrl("images/couple-hero.png"),
     gallery: [
-      { id: "1", url: getAssetUrl("images/couple-hero.png"), caption: "The beginning of our journey", aspect: "aspect-[4/5]" },
-      { id: "2", url: getAssetUrl("images/gallery-2.png"), caption: "Laughter in every heartbeat", aspect: "aspect-[4/3]" },
-      { id: "3", url: getAssetUrl("images/gallery-3.png"), caption: "A walk towards forever", aspect: "aspect-[4/5]" },
-      { id: "4", url: getAssetUrl("images/gallery-4.png"), caption: "Golden sunset memories", aspect: "aspect-[4/3]" },
-      { id: "5", url: getAssetUrl("images/gallery-5.png"), caption: "Cherished celebrations", aspect: "aspect-[4/5]" },
-      { id: "6", url: getAssetUrl("images/gallery-6.png"), caption: "Ready for our big day", aspect: "aspect-[4/4]" },
+      { id: "1", url: getAssetUrl("images/couple-hero.png"), caption: "The beginning of forever", aspect: "aspect-[4/5]" },
+      { id: "3", url: getAssetUrl("images/gallery-10.png"), caption: "Celebrating love, together", aspect: "aspect-[4/3]" },
+      { id: "2", url: getAssetUrl("images/gallery-2.png"), caption: "രണ്ട് ഹൃദയങ്ങൾ, ഒരേ സ്വപ്നത്തിലേക്ക്…", aspect: "aspect-[4/4]" },
+      { id: "5", url: getAssetUrl("images/gallery-7.png"), caption: "Surrounded by love and blessings", aspect: "aspect-[4/3]" },
+      { id: "6", url: getAssetUrl("images/gallery-8.png"), caption: "Love found its place, and hearts found their home.", aspect: "aspect-[4/4]" },
+      { id: "4", url: getAssetUrl("images/gallery-9.png"), caption: "Ready for our big day", aspect: "aspect-[4/5]" },
+
     ] as GalleryPhoto[],
   },
   rsvp: {
@@ -123,5 +124,6 @@ export const weddingData = {
     coupleNames: "Prabin & Sneha",
     dateVenue: "Monday, 7 September · Kerala, India",
     loveNote: "Made with love ❤︎",
+    backgroundImage: getAssetUrl("images/gallery-4.png"),
   }
 };

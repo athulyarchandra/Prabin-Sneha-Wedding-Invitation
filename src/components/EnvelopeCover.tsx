@@ -87,14 +87,10 @@ export const EnvelopeCover: React.FC<EnvelopeCoverProps> = ({ onOpen, isOpen }) 
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-[#936492]/20 pt-3 flex items-center justify-between text-[11px] text-[#8c748a]">
-          <span className="flex items-center gap-1">
-            <Volume2 className="w-3.5 h-3.5 text-[#d4af37]" /> Sound on
-          </span>
+        <div className="border-t border-[#936492]/20 pt-3 flex items-center justify-center text-[11px] text-[#8c748a]">
+      
           <span className="italic font-medium">{weddingData.couple.hashtag}</span>
-          <span className="flex items-center gap-1">
-            <Music className="w-3.5 h-3.5 text-[#936492]" /> Ambient harp
-          </span>
+        
         </div>
 
       </div>

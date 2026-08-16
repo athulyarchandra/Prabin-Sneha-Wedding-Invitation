@@ -79,7 +79,7 @@ export const HeroSection: React.FC = () => {
           </span>
           <span className="flex items-center gap-1.5 bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/20 shadow-md">
             <MapPin className="w-3.5 h-3.5 text-[#f1df9d]" />
-            Kerala, India
+            Palakkad, Kerala
           </span>
         </div>
 

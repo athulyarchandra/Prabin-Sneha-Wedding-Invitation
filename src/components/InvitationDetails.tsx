@@ -51,7 +51,7 @@ export const InvitationDetails: React.FC = () => {
               {weddingData.couple.groom.parentsSubtitle}
             </p>
             <div className="mt-2.5 px-3 py-0.5 rounded-full bg-[#f4ecf3] text-[10px] sm:text-[11px] font-semibold text-[#6e416d] border border-[#936492]/15">
-              Son: {weddingData.couple.groom.name}
+             Prasanth Mandiram, Kizhakke Kunnumpuram, Punalal P.O, Thiruvananthapuram
             </div>
           </div>
 
@@ -67,7 +67,7 @@ export const InvitationDetails: React.FC = () => {
               {weddingData.couple.bride.parentsSubtitle}
             </p>
             <div className="mt-2.5 px-3 py-0.5 rounded-full bg-[#f4ecf3] text-[10px] sm:text-[11px] font-semibold text-[#6e416d] border border-[#936492]/15">
-              Daughter: {weddingData.couple.bride.name}
+              Padayan House, Kumbidi, Palakkad
             </div>
           </div>
 
