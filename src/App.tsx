@@ -18,7 +18,6 @@ export function App() {
   const [showAllBlessings, setShowAllBlessings] = useState(false);
 
   const [blessings, setBlessings] = useState<Blessing[]>([]);
-  const [isBlessingsLoading, setIsBlessingsLoading] = useState(true);
 
   // Load blessings from backend
   useEffect(() => {
@@ -29,8 +28,6 @@ export function App() {
       } catch (error) {
         console.error('Failed to load blessings:', error);
         setBlessings(weddingData.initialBlessings);
-      } finally {
-        setIsBlessingsLoading(false);
       }
     };
 
@@ -51,7 +48,7 @@ export function App() {
 
   return (
     <div className="relative min-h-screen bg-modern-gradient text-[#2c222b] overflow-x-hidden selection:bg-[#936492] selection:text-white">
-      
+
       {/* Front Royal Envelope Cover with Wax Seal */}
       <EnvelopeCover
         isOpen={isEnvelopeOpen}
@@ -60,7 +57,7 @@ export function App() {
 
       {/* Main Wedding Invitation Experience */}
       <main className="relative z-10">
-        
+
         {/* Section 1: Hero & Couple Introduction */}
         <div id="hero">
           <HeroSection />
