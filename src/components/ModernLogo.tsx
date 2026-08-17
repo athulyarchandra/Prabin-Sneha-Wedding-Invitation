@@ -12,80 +12,121 @@ export const ModernLogo: React.FC<ModernLogoProps> = ({
   animate = true,
 }) => {
   const sizeMap = {
-    sm: { box: 'w-10 h-10', svg: 'w-10 h-10', text: 'text-xs' },
-    md: { box: 'w-16 h-16', svg: 'w-16 h-16', text: 'text-base' },
-    lg: { box: 'w-24 h-24', svg: 'w-24 h-24', text: 'text-2xl' },
-    xl: { box: 'w-32 h-32', svg: 'w-32 h-32', text: 'text-4xl' },
+    sm: { box: 'w-10 h-10' },
+    md: { box: 'w-16 h-16' },
+    lg: { box: 'w-24 h-24' },
+    xl: { box: 'w-32 h-32' },
   };
 
   const currentSize = sizeMap[size];
 
   return (
-    <div className={`relative inline-flex items-center justify-center ${currentSize.box} ${className}`}>
-      
-      {/* Outer Rotating Subtle Gold Ring */}
+    <div
+      className={`relative inline-flex items-center justify-center ${currentSize.box} ${className}`}
+    >
+      {/* Soft ambient glow */}
       <div
-        className={`absolute inset-0 rounded-full border border-[#d4af37]/40 ${
-          animate ? 'animate-[spin_20s_linear_infinite]' : ''
+        className={`absolute inset-0 rounded-full bg-[#936492]/35 blur-md ${
+          animate ? 'animate-pulse [animation-duration:4s]' : ''
         }`}
-        style={{
-          borderStyle: 'dashed',
-        }}
       />
 
-      {/* Radiant Background Aura */}
-      <div className="absolute inset-1 rounded-full bg-gradient-to-br from-[#936492] via-[#5c2a59] to-[#2b0d2a] shadow-[0_8px_25px_rgba(147,100,146,0.45)] border border-[#f1df9d]/60 flex items-center justify-center overflow-hidden">
-        
-        {/* Subtle Geometric Diamond Overlay */}
-        <div className="absolute inset-2 border border-[#f1df9d]/25 rotate-45 transform pointer-events-none" />
+      {/* Elegant outer ring */}
+      <div
+        className={`absolute inset-0 rounded-full border border-[#d4af37]/50 ${
+          animate ? 'animate-[spin_30s_linear_infinite]' : ''
+        }`}
+        style={{ borderStyle: 'dashed' }}
+      />
 
-        {/* Intertwined Modern Monogram (P & S) */}
+      {/* Main circle */}
+      <div className="absolute inset-[8%] rounded-full bg-linear-to-br from-[#936492] via-[#5c2a59] to-[#2b0d2a] shadow-[0_8px_25px_rgba(147,100,146,0.45)] border border-[#f1df9d]/50 flex items-center justify-center overflow-hidden">
+
+        {/* Inner ring */}
+        <div className="absolute inset-[9%] rounded-full border border-[#f1df9d]/25" />
+
         <svg
           viewBox="0 0 100 100"
-          className="w-4/5 h-4/5 text-[#fbf6e2] filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+          className="w-[82%] h-[82%]"
         >
-          {/* Subtle floral laurel curves */}
-          <path
-            d="M 20 50 C 20 30, 35 18, 50 18 C 65 18, 80 30, 80 50 C 80 70, 65 82, 50 82 C 35 82, 20 70, 20 50 Z"
-            stroke="url(#goldGradient)"
-            strokeWidth="1.2"
-            strokeOpacity="0.5"
-          />
-
-          {/* Letter P */}
-          <path
-            d="M 36 68 V 32 H 49 C 57 32, 60 38, 60 44 C 60 50, 57 56, 49 56 H 36"
-            stroke="url(#goldGradient)"
-            strokeWidth="3.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          {/* Letter S (Intertwined) */}
-          <path
-            d="M 64 36 C 60 33, 53 32, 48 36 C 42 40, 44 48, 56 50 C 68 52, 69 61, 62 66 C 56 70, 47 69, 41 64"
-            stroke="#ffffff"
-            strokeWidth="3.2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          {/* Center Sparkle */}
-          <circle cx="50" cy="50" r="1.5" fill="#f1df9d" />
-
-          {/* Gradients */}
           <defs>
-            <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#d4af37" />
-              <stop offset="50%" stopColor="#fbf3c4" />
-              <stop offset="100%" stopColor="#b38719" />
+            {/* Gold gradient */}
+            <linearGradient
+              id="psGold"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="100%"
+            >
+              <stop offset="0%" stopColor="#fff8dc" />
+              <stop offset="35%" stopColor="#f1d77a" />
+              <stop offset="65%" stopColor="#d4af37" />
+              <stop offset="100%" stopColor="#a87912" />
             </linearGradient>
-          </defs>
-        </svg>
 
+            {/* Soft text glow */}
+            <filter id="goldGlow">
+              <feGaussianBlur stdDeviation="0.8" result="blur" />
+              <feMerge>
+                <feMergeNode in="blur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+
+{/* Centered monogram group */}
+<g transform="translate(0, -5)">
+  {/* P */}
+  <text
+    x="40"
+    y="55"
+    fontSize="43"
+    fontStyle="italic"
+    fontWeight="600"
+    fill="url(#psGold)"
+    textAnchor="middle"
+    dominantBaseline="central"
+    fontFamily="'Cormorant Garamond', 'Playfair Display', Georgia, serif"
+    filter="url(#goldGlow)"
+  >
+    P
+  </text>
+
+  {/* S */}
+  <text
+    x="60"
+    y="55"
+    fontSize="43"
+    fontStyle="italic"
+    fontWeight="500"
+    fill="#fff9e8"
+    textAnchor="middle"
+    dominantBaseline="central"
+    fontFamily="'Cormorant Garamond', 'Playfair Display', Georgia, serif"
+  >
+    S
+  </text>
+
+</g>
+
+          {/* Connecting flourish */}
+          <path
+            d="M29 67 C39 63, 48 70, 57 66 C65 63, 70 65, 74 69"
+            fill="none"
+            stroke="url(#psGold)"
+            strokeWidth="1.2"
+            strokeLinecap="round"
+            opacity="0.9"
+          />
+
+          {/* Tiny center diamond */}
+          <path
+            d="M50 76 L52 78 L50 80 L48 78 Z"
+            fill="url(#psGold)"
+          />
+
+        </svg>
       </div>
     </div>
   );
-};
+};  

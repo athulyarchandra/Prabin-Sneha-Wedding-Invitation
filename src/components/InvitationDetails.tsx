@@ -40,7 +40,7 @@ export const InvitationDetails: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 my-6 border-y border-[#936492]/20 py-6">
           
           {/* Groom's Family */}
-          <div className="flex flex-col items-center p-5 rounded-2xl bg-gradient-to-br from-white/90 to-[#f9f2f8] border border-[#936492]/20 shadow-xs hover:border-[#936492]/50 transition-all">
+          <div className="flex flex-col items-center p-5 rounded-2xl bg-linear-to-br from-white/90 to-[#f9f2f8] border border-[#936492]/20 shadow-xs hover:border-[#936492]/50 transition-all">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#936492] mb-1 flex items-center gap-1">
               <Award className="w-3.5 h-3.5 text-[#d4af37]" /> Groom's Family
             </span>
@@ -56,7 +56,7 @@ export const InvitationDetails: React.FC = () => {
           </div>
 
           {/* Bride's Family */}
-          <div className="flex flex-col items-center p-5 rounded-2xl bg-gradient-to-br from-white/90 to-[#f9f2f8] border border-[#936492]/20 shadow-xs hover:border-[#936492]/50 transition-all">
+          <div className="flex flex-col items-center p-5 rounded-2xl bg-linear-to-br from-white/90 to-[#f9f2f8] border border-[#936492]/20 shadow-xs hover:border-[#936492]/50 transition-all">
             <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#936492] mb-1 flex items-center gap-1">
               <Award className="w-3.5 h-3.5 text-[#d4af37]" /> Bride's Family
             </span>
@@ -88,7 +88,7 @@ export const InvitationDetails: React.FC = () => {
           {weddingData.events.map((event) => (
             <div
               key={event.id}
-              className="p-5 rounded-2xl bg-gradient-to-br from-white/95 to-[#fbf5fa] border border-[#d4af37]/35 shadow-sm hover:border-[#936492] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="p-5 rounded-2xl bg-linear-to-br from-white/95 to-[#fbf5fa] border border-[#d4af37]/35 shadow-sm hover:border-[#936492] hover:shadow-md transition-all duration-300 flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-2 mb-1.5">
