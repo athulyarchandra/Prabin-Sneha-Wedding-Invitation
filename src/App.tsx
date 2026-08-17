@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { EnvelopeCover } from './components/EnvelopeCover';
 import { HeroSection } from './components/HeroSection';
 import { ScratchCardReveal } from './components/ScratchCardReveal';
@@ -11,26 +11,38 @@ import { AllBlessingsView } from './components/AllBlessingsView';
 import { AudioPlayer } from './components/AudioPlayer';
 import { Footer } from './components/Footer';
 import { weddingData, type Blessing } from './data/weddingData';
+import { getBlessings } from './services/blessingService';
 
 export function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
   const [showAllBlessings, setShowAllBlessings] = useState(false);
-  const [blessings, setBlessings] = useState<Blessing[]>(() => {
-    const saved = localStorage.getItem('wedding_guest_blessings');
-    if (saved) {
-      try {
-        return JSON.parse(saved);
-      } catch {
-        return weddingData.initialBlessings;
-      }
-    }
-    return weddingData.initialBlessings;
-  });
 
+  const [blessings, setBlessings] = useState<Blessing[]>([]);
+  const [isBlessingsLoading, setIsBlessingsLoading] = useState(true);
+
+  // Load blessings from backend
+  useEffect(() => {
+    const loadBlessings = async () => {
+      try {
+        const data = await getBlessings();
+        setBlessings(data);
+      } catch (error) {
+        console.error('Failed to load blessings:', error);
+        setBlessings(weddingData.initialBlessings);
+      } finally {
+        setIsBlessingsLoading(false);
+      }
+    };
+
+    loadBlessings();
+  }, []);
+
+  // Add newly submitted blessing to the current UI
   const handleAddBlessing = (newBlessing: Blessing) => {
-    const updated = [newBlessing, ...blessings];
-    setBlessings(updated);
-    localStorage.setItem('wedding_guest_blessings', JSON.stringify(updated));
+    setBlessings((currentBlessings) => [
+      newBlessing,
+      ...currentBlessings,
+    ]);
   };
 
   const handleOpenEnvelope = () => {
@@ -46,20 +58,18 @@ export function App() {
         onOpen={handleOpenEnvelope}
       />
 
-
-
       {/* Main Wedding Invitation Experience */}
       <main className="relative z-10">
         
-        {/* Section 1: Hero & Couple Introduction (Background Photo Reveal) */}
+        {/* Section 1: Hero & Couple Introduction */}
         <div id="hero">
           <HeroSection />
         </div>
 
-        {/* Section 2: 3-Part Date Reveal Scratch Cards (Horizontal on Mobile & Desktop) */}
+        {/* Section 2: 3-Part Date Reveal Scratch Cards */}
         <ScratchCardReveal />
 
-        {/* Section 3: Live Countdown Timer (Horizontal on All Screens) */}
+        {/* Section 3: Live Countdown Timer */}
         <CountdownTimer />
 
         {/* Section 4: Main Royal Invitation Details & Family Timeline */}

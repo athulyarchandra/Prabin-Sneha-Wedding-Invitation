@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Heart, Sparkles, Send, ArrowRight, MessageSquareHeart } from 'lucide-react';
 import type { Blessing } from '../data/weddingData';
-
+import { createBlessing } from '../services/blessingService';
 interface GuestBookProps {
   blessings: Blessing[];
   onAddBlessing: (blessing: Blessing) => void;
@@ -18,34 +18,33 @@ export const GuestBook: React.FC<GuestBookProps> = ({
   const [message, setMessage] = useState('');
   const [sentToast, setSentToast] = useState(false);
 
-  const latestBlessings = blessings.slice(0, 3);
+const latestBlessings = blessings.slice(0, 2);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!name.trim() || !message.trim()) return;
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-    const colors = ['bg-[#936492]', 'bg-[#754474]', 'bg-[#5c355b]', 'bg-[#b78bb6]', 'bg-[#a67c1e]'];
-    const randomBg = colors[Math.floor(Math.random() * colors.length)];
+  if (!name.trim() || !message.trim()) return;
 
-    const newBlessing: Blessing = {
-      id: `b-${Date.now()}`,
+  try {
+    const newBlessing = await createBlessing({
       name: name.trim(),
-      relation: relation.trim(),
+      relationship: relation.trim(),
       message: message.trim(),
-      date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-      avatarBg: randomBg,
-    };
+    });
 
     onAddBlessing(newBlessing);
+
     setName('');
     setMessage('');
     setSentToast(true);
 
-
     setTimeout(() => {
       setSentToast(false);
     }, 4000);
-  };
+  } catch (error) {
+    console.error('Failed to submit blessing:', error);
+  }
+};
 
   return (
     <section id="guestbook-section" className="py-10 md:py-14 px-4 max-w-4xl mx-auto">

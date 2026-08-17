@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Heart, Sparkles, MessageCircle, Send, Search } from 'lucide-react';
 import type { Blessing } from '../data/weddingData';
+import { createBlessing } from '../services/blessingService';
 
 interface AllBlessingsViewProps {
   isOpen: boolean;
@@ -26,36 +27,77 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
 
   if (!isOpen) return null;
 
-  const filteredBlessings = blessings.filter((b) => {
+  /*
+   * Sort latest blessings first.
+   *
+   * The App already receives blessings from the backend in latest-first
+   * order, but sorting here as well keeps this component safe if the
+   * order of the incoming data changes.
+   */
+  const sortedBlessings = [...blessings].sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+
+    return dateB - dateA;
+  });
+
+  const filteredBlessings = sortedBlessings.filter((b) => {
+    const search = searchTerm.toLowerCase().trim();
+
     const matchesSearch =
-      b.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      b.message.toLowerCase().includes(searchTerm.toLowerCase());
+      !search ||
+      b.name.toLowerCase().includes(search) ||
+      b.message.toLowerCase().includes(search);
+
+    /*
+     * Relationship must match exactly.
+     *
+     * We intentionally use === instead of includes().
+     *
+     * Example:
+     * Friend      -> only Friend
+     * Family Member -> only Family Member
+     * Cousin      -> only Cousin
+     * Colleague   -> only Colleague
+     * Well-wisher -> only Well-wisher
+     */
     const matchesRelation =
-      selectedRelation === 'All' || b.relation.toLowerCase().includes(selectedRelation.toLowerCase());
+      selectedRelation === 'All' ||
+      b.relation.trim().toLowerCase() === selectedRelation.trim().toLowerCase();
+
     return matchesSearch && matchesRelation;
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
     if (!name.trim() || !message.trim()) return;
 
-    const colors = ['bg-[#936492]', 'bg-[#754474]', 'bg-[#5c355b]', 'bg-[#b78bb6]', 'bg-[#a67c1e]'];
-    const randomBg = colors[Math.floor(Math.random() * colors.length)];
+    try {
+      /*
+       * Save directly to MongoDB through the Express API.
+       *
+       * We do NOT create a fake local ID or date here.
+       * MongoDB/Mongoose creates those values.
+       */
+      const newBlessing = await createBlessing({
+        name: name.trim(),
+        relationship: relation.trim(),
+        message: message.trim(),
+      });
 
-    const newBlessing: Blessing = {
-      id: `b-${Date.now()}`,
-      name: name.trim(),
-      relation: relation.trim(),
-      message: message.trim(),
-      date: new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }),
-      avatarBg: randomBg,
-    };
+      /*
+       * Update the existing App state immediately so the new blessing
+       * appears without refreshing the page.
+       */
+      onAddBlessing(newBlessing);
 
-    onAddBlessing(newBlessing);
-    setName('');
-    setMessage('');
-    setShowAddForm(false);
-
+      setName('');
+      setMessage('');
+      setShowAddForm(false);
+    } catch (error) {
+      console.error('Failed to submit blessing:', error);
+    }
   };
 
   return (
@@ -102,7 +144,14 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
 
           {/* Relation Filter Pills */}
           <div className="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto py-1">
-            {['All', 'Family', 'Friend', 'Cousin', 'Uncle'].map((rel) => (
+            {[
+              'All',
+              'Friend',
+              'Family Member',
+              'Cousin',
+              'Colleague',
+              'Well-wisher',
+            ].map((rel) => (
               <button
                 key={rel}
                 onClick={() => setSelectedRelation(rel)}
@@ -150,6 +199,7 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
                     className="w-full px-3.5 py-2.5 rounded-xl border border-[#936492]/30 text-xs focus:ring-2 focus:ring-[#936492] outline-none"
                   />
                 </div>
+
                 <div>
                   <label className="block text-xs font-bold uppercase text-[#5c355b] mb-1">Relation / Connection</label>
                   <select
@@ -186,6 +236,7 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
                 >
                   Cancel
                 </button>
+
                 <button
                   type="submit"
                   className="px-6 py-2 rounded-xl bg-[#936492] hover:bg-[#754474] text-white text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 cursor-pointer shadow-md"
@@ -202,8 +253,12 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
           <div className="text-center py-16 text-white/70">
             <MessageCircle className="w-12 h-12 mx-auto mb-3 opacity-50" />
             <p className="font-serif text-lg">No blessings matched your search.</p>
+
             <button
-              onClick={() => { setSearchTerm(''); setSelectedRelation('All'); }}
+              onClick={() => {
+                setSearchTerm('');
+                setSelectedRelation('All');
+              }}
               className="mt-3 text-xs text-[#f1df9d] underline cursor-pointer"
             >
               Clear filters
@@ -223,10 +278,12 @@ export const AllBlessingsView: React.FC<AllBlessingsViewProps> = ({
                     >
                       {item.name.charAt(0)}
                     </div>
+
                     <div>
                       <h4 className="font-serif font-bold text-[#3b1d3a] text-sm">
                         {item.name}
                       </h4>
+
                       <span className="text-[11px] text-[#936492] font-medium block">
                         {item.relation}
                       </span>
