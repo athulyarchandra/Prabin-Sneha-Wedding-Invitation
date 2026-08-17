@@ -139,7 +139,7 @@ export const StoryGallery: React.FC = () => {
       {/* Film strip */}
       <div className="mt-6 rounded-xl bg-linear-to-b from-[#2a172a] to-[#3b1d3a] py-2 shadow-inner">
         <SprocketRow />
-        <div className="flex gap-2 px-4 py-2.5 snap-x snap-mandatory">
+       <div className="flex gap-2 overflow-x-auto px-4 py-2.5 snap-x snap-mandatory scrollbar-none [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {photos.map((photo, idx) => (
             <button
               key={photo.id}
