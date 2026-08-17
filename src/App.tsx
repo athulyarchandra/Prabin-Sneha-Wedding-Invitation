@@ -6,11 +6,9 @@ import { CountdownTimer } from './components/CountdownTimer';
 import { InvitationDetails } from './components/InvitationDetails';
 import { VenueDetails } from './components/VenueDetails';
 import { StoryGallery } from './components/StoryGallery';
-import { RSVPSection } from './components/RSVPSection';
 import { GuestBook } from './components/GuestBook';
 import { AllBlessingsView } from './components/AllBlessingsView';
 import { AudioPlayer } from './components/AudioPlayer';
-// import { FloatingNav } from './components/FloatingNav';
 import { Footer } from './components/Footer';
 import { weddingData, type Blessing } from './data/weddingData';
 
@@ -74,7 +72,6 @@ export function App() {
         <StoryGallery />
 
         {/* Section 7: Kindly RSVP Form */}
-        <RSVPSection />
 
         {/* Section 8: Guest Book & Latest Blessings */}
         <GuestBook

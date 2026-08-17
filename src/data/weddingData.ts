@@ -55,8 +55,8 @@ export const weddingData = {
     },
     initials: "P & S",
     tagline: "Together with our families",
-    subtagline: "With the blessings of the Almighty and our beloved parents, we invite you to share in the joy of our union as we exchange vows and begin a new chapter of love, laughter, and forever.",
-    subtaglineTwo: "With immense joy, we invite you to join us in celebrating this beautiful occasion and to bless the couple as they begin their journey together.",
+    subtagline: "With the love and support of our beloved families, we invite you to share in the joy of our union as we exchange vows and begin a new chapter of love, laughter, and forever.",
+    subtaglineTwo: "With immense joy, we invite you to be part of a beautiful beginning, where two lives come together and a new forever begins.",
     hashtag: "#PrabinWedsSneha",
   },
   date: {
@@ -76,7 +76,7 @@ export const weddingData = {
       venue: "Kumaranellur Register Office",
       address: "Kumaranellur, Palakkad / Malappuram Border, Kerala, India",
       mapQuery: "Kumaranellur Sub Registrar Office, Kerala",
-      description: "With the blessings of our parents, we officially register our marriage and begin our lifelong journey.",
+      description: "With our parents and friends by our side, we officially register our marriage and begin a beautiful lifelong journey together.",
       iconName: "FileCheck",
     },
     {
@@ -87,7 +87,7 @@ export const weddingData = {
       venue: "NAS Auditorium, Kumbidi",
       address: "Kumbidi, Pattambi Taluk, Palakkad District, Kerala 679533",
       mapQuery: "NAS Auditorium, Kumbidi, Kerala",
-      description: "Join us for an afternoon of joyous celebration, music, delightful traditional cuisine, and cherished memories.",
+      description: "Join us for an afternoon of joyous celebration, music, and cherished memories.",
       iconName: "Sparkles",
     },
   ] as WeddingEvent[],
@@ -108,7 +108,8 @@ export const weddingData = {
       { id: "2", url: getAssetUrl("images/gallery-2.png"), caption: "രണ്ട് ഹൃദയങ്ങൾ, ഒരേ സ്വപ്നത്തിലേക്ക്…", aspect: "aspect-[4/4]" },
       { id: "4", url: getAssetUrl("images/gallery-9.png"), caption: "Ready for our big day", aspect: "aspect-[4/5]" },
       { id: "6", url: getAssetUrl("images/gallery-8.png"), caption: "Love found its place, and hearts found their home.", aspect: "aspect-[4/4]" },
-      { id: "5", url: getAssetUrl("images/gallery-7.png"), caption: "Surrounded by love and blessings", aspect: "aspect-[4/3]" },
+      { id: "5", url: getAssetUrl("images/gallery-7.png"), caption: "Surrounded by love ", aspect: "aspect-[4/3]" },
+      { id: "7", url: getAssetUrl("images/gallery-5.png"), caption: "Surrounded by love ", aspect: "aspect-[4/3]" },
 
     ] as GalleryPhoto[],
   },

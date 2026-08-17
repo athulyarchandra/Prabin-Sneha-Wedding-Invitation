@@ -202,7 +202,7 @@ const SingleScratchCard: React.FC<ScratchItemProps> = ({
         {/* Reveal layer sits underneath the canvas at all times.
             As destination-out clears the canvas, this shows through
             live — the digit is visible mid-scratch, not just at 100%. */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center bg-gradient-to-b from-[#fdfaf6] via-white to-[#f6ecf5] select-none">
+        <div className="absolute inset-0 flex flex-col items-center justify-center p-2 text-center bg-linear-to-b from-[#fdfaf6] via-white to-[#f6ecf5] select-none">
           <div
             className={`font-serif ${fontSizeClass} font-bold my-0.5 w-full px-1 leading-tight`}
             style={{
@@ -311,7 +311,7 @@ export const ScratchCardReveal: React.FC = () => {
         {!allRevealed ? (
           <button
             onClick={revealAll}
-            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-gradient-to-r from-[#936492] to-[#754474] text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
+            className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-linear-to-r from-[#936492] to-[#754474] text-white text-xs font-semibold uppercase tracking-wider shadow-md hover:shadow-lg transition-all cursor-pointer"
           >
             <Eye className="w-3.5 h-3.5 text-[#f1df9d]" /> Reveal All Cards
           </button>

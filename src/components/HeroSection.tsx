@@ -29,11 +29,11 @@ export const HeroSection: React.FC = () => {
 
         {/* Fallback pattern if image is loading */}
         {!imgLoaded && (
-          <div className="absolute inset-0 bg-gradient-to-b from-[#2a1029] via-[#4d234c] to-[#1a0819]" />
+          <div className="absolute inset-0 bg-linear-to-b from-[#2a1029] via-[#4d234c] to-[#1a0819]" />
         )}
 
         {/* Multi-layered Cinematic Luxury Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#1a0819]/10 via-[#2a1029]/65 to-[#faf6f9] pointer-events-none" />
+        <div className="absolute inset-0 bg-linear-to-b from-[#1a0819]/10 via-[#2a1029]/65 to-[#faf6f9] pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_20%,rgba(26,8,25,0.75)_100%)] pointer-events-none" />
       </div>
 

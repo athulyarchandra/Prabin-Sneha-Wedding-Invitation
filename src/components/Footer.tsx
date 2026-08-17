@@ -22,7 +22,7 @@ export const Footer: React.FC = () => {
       <div className="absolute inset-0 bg-[#1e071d]/20" />
 
       {/* Subtle additional gradient for depth */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#2b0d2a]/60 via-[#1e071d]/70 to-[#120512]/95" />
+      <div className="absolute inset-0 bg-linear-to-b from-[#2b0d2a]/60 via-[#1e071d]/70 to-[#120512]/95" />
 
       {/* Decorative Glow */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-[#936492]/10 blur-3xl" />
@@ -59,11 +59,11 @@ export const Footer: React.FC = () => {
         </p>
 
         {/* Divider */}
-        <div className="h-[1px] w-24 mx-auto my-5 bg-gradient-to-r from-transparent via-[#d4af37]/60 to-transparent" />
+        <div className="h-px w-24 mx-auto my-5 bg-linear-to-r from-transparent via-[#d4af37]/60 to-transparent" />
 
         {/* Sibling Wish */}
         <p className="font-display italic text-sm sm:text-base text-[#fbf6e2]/90">
-          With love & blessings, <span className="text-[#f1df9d]">Nived</span>
+          With love <span className="text-[#f1df9d]">Nived</span>
         </p>
 
         {/* Made with Love Note */}

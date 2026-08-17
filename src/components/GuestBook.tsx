@@ -61,7 +61,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
         </div>
 
         <h2 className="font-serif text-2xl sm:text-4xl font-normal text-[#3b1d3a] tracking-tight">
-          Share your blessings
+         Share your love
         </h2>
         <p className="font-display italic text-sm sm:text-base text-[#6d556c] max-w-md mx-auto mt-1">
           Leave a wish, a memory, or a verse for the couple.
@@ -107,7 +107,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
 
           <div>
             <label className="block text-[11px] font-bold uppercase tracking-wider text-[#5c355b] mb-1">
-              Your Blessing, Wish or Verse
+              Your Message, Wish or Verse
             </label>
             <textarea
               required
@@ -133,7 +133,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
 
             <button
               type="submit"
-              className="w-full sm:w-auto px-6 py-2.5 rounded-2xl bg-gradient-to-r from-[#936492] via-[#7e477d] to-[#5c355b] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+              className="w-full sm:w-auto px-6 py-2.5 rounded-2xl bg-linear-to-r from-[#936492] via-[#7e477d] to-[#5c355b] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] transition-all flex items-center justify-center gap-1.5 cursor-pointer"
             >
               <Send className="w-3 h-3 text-[#f1df9d]" />
               <span>Send Blessing</span>
@@ -148,7 +148,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
         <div className="flex items-center justify-between mb-2">
           <h3 className="font-serif text-lg sm:text-xl font-normal text-[#3b1d3a] flex items-center gap-1.5">
             <MessageSquareHeart className="w-4 h-4 text-[#936492]" />
-            <span>Latest Blessings</span>
+            <span>Words of Love</span>
           </h3>
         </div>
 
@@ -156,7 +156,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
           {latestBlessings.map((blessing) => (
             <div
               key={blessing.id}
-              className="rounded-2xl bg-gradient-to-br from-white/95 to-[#faf2f9] p-4 border border-[#936492]/20 shadow-xs hover:shadow-md hover:border-[#936492] transition-all flex flex-col justify-between"
+              className="rounded-2xl bg-linear-to-br from-white/95 to-[#faf2f9] p-4 border border-[#936492]/20 shadow-xs hover:shadow-md hover:border-[#936492] transition-all flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center gap-2 mb-2">
@@ -194,7 +194,7 @@ export const GuestBook: React.FC<GuestBookProps> = ({
             onClick={onOpenAllBlessings}
             className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white border border-[#936492] text-[#936492] hover:bg-[#936492] hover:text-white font-bold text-xs uppercase tracking-wider shadow-xs hover:shadow-md transition-all cursor-pointer group"
           >
-            <span>See All Blessings ({blessings.length})</span>
+            <span>See All Love Notes ({blessings.length})</span>
             <ArrowRight className="w-3.5 h-3.5 text-[#d4af37] group-hover:translate-x-1 transition-transform" />
           </button>
         </div>

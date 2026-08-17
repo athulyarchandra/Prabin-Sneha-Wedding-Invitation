@@ -99,7 +99,7 @@ export const RSVPSection: React.FC = () => {
               {existingRSVP?.attending === 'yes' ? (
                 <>We are thrilled to celebrate with you! Your RSVP for <strong>{existingRSVP.guestCount} {existingRSVP.guestCount === 1 ? 'guest' : 'guests'}</strong> has been saved.</>
               ) : (
-                <>Thank you for letting us know. Your blessings remain with us!</>
+                <>Thank you for letting us know. Your love and warm wishes mean so much to us!</>
               )}
             </p>
 
@@ -116,7 +116,7 @@ export const RSVPSection: React.FC = () => {
             
             {/* Guest Name */}
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#5c355b] mb-1 flex items-center gap-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#5c355b] mb-1 items-center gap-1">
                 <User className="w-3 h-3 text-[#936492]" /> Your Name
               </label>
               <input
@@ -167,7 +167,7 @@ export const RSVPSection: React.FC = () => {
 
             {/* Note */}
             <div>
-              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#5c355b] mb-1 flex items-center gap-1">
+              <label className="block text-[11px] font-bold uppercase tracking-wider text-[#5c355b] mb-1 items-center gap-1">
                 <MessageSquare className="w-3 h-3 text-[#936492]" /> Dietary Notes / Wishes (Optional)
               </label>
               <textarea
@@ -182,7 +182,7 @@ export const RSVPSection: React.FC = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#936492] via-[#7e477d] to-[#5c355b] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2"
+              className="w-full py-3.5 rounded-2xl bg-linear-to-r from-[#936492] via-[#7e477d] to-[#5c355b] text-white font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer flex items-center justify-center gap-2"
             >
               <Send className="w-3.5 h-3.5 text-[#f1df9d]" />
               <span>Send RSVP</span>

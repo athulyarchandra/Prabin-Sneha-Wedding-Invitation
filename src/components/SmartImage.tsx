@@ -43,12 +43,12 @@ export const SmartImage: React.FC<SmartImageProps> = ({
     return (
       <div
         onClick={onClick}
-        className={`relative overflow-hidden rounded-2xl border-2 border-dashed border-[#936492]/35 bg-gradient-to-br from-[#936492]/10 via-[#f4ecf3] to-[#e8d5b5]/30 p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#936492] hover:bg-[#936492]/15 ${aspectRatio} ${className} ${onClick ? 'cursor-pointer' : ''}`}
+        className={`relative overflow-hidden rounded-2xl border-2 border-dashed border-[#936492]/35 bg-linear-to-br from-[#936492]/10 via-[#f4ecf3] to-[#e8d5b5]/30 p-6 flex flex-col items-center justify-center text-center transition-all duration-300 hover:border-[#936492] hover:bg-[#936492]/15 ${aspectRatio} ${className} ${onClick ? 'cursor-pointer' : ''}`}
       >
         <div className="w-12 h-12 rounded-full bg-white/80 shadow-md flex items-center justify-center text-[#936492] mb-3 border border-[#936492]/20">
           <Camera className="w-6 h-6" />
         </div>
-        <span className="font-serif text-sm font-semibold text-[#5c355b] max-w-[200px] truncate">
+        <span className="font-serif text-sm font-semibold text-[#5c355b] max-w-50 truncate">
           {alt}
         </span>
         <span className="mt-1 text-xs font-mono text-[#936492]/80 bg-white/60 px-2.5 py-0.5 rounded-full border border-[#936492]/15">
